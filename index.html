@@ -3,320 +3,535 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MateLogic Interactive | Desarrollo de Software</title>
+    <title>MateLogic Interactive | Soluciones Digitales Innovadoras</title>
+
     <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
-    <!-- Tailwind CSS desde CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "mate-teal": "#0b5e6b",
-              "mate-light-teal": "#58b0bd",
-              "mate-brown": "#7a4e2b",
-              "mate-beige": "#f5f0e6",
-              "mate-green": "#8fb03e",
-            },
-          },
-        },
-      };
-    </script>
-    <!-- Font Awesome -->
+    <meta
+      name="description"
+      content="MateLogic Interactive - Soluciones digitales con esencia argentina. Transformamos ideas en software a medida."
+    />
+
+    <!-- Bulma CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+
+    <!-- Tabler Icons CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.22.0/tabler-icons.min.css"
+    />
+
+    <style>
+      /* Colores personalizados basados en la paleta original */
+      :root {
+        --mate-teal: #0b5e6b;
+        --mate-light-teal: #58b0bd;
+        --mate-brown: #7a4e2b;
+        --mate-beige: #f5f0e6;
+        --mate-green: #8fb03e;
+      }
+
+      /* Clases de colores personalizados */
+      .has-text-mate-teal {
+        color: var(--mate-teal) !important;
+      }
+      .has-text-mate-light-teal {
+        color: var(--mate-light-teal) !important;
+      }
+      .has-text-mate-brown {
+        color: var(--mate-brown) !important;
+      }
+      .has-text-mate-beige {
+        color: var(--mate-beige) !important;
+      }
+      .has-text-mate-green {
+        color: var(--mate-green) !important;
+      }
+
+      .has-background-mate-teal {
+        background-color: var(--mate-teal) !important;
+      }
+      .has-background-mate-light-teal {
+        background-color: var(--mate-light-teal) !important;
+      }
+      .has-background-mate-brown {
+        background-color: var(--mate-brown) !important;
+      }
+      .has-background-mate-beige {
+        background-color: var(--mate-beige) !important;
+      }
+      .has-background-mate-green {
+        background-color: var(--mate-green) !important;
+      }
+
+      /* Gradientes y efectos */
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--mate-teal),
+          var(--mate-light-teal)
+        );
+      }
+
+      /* Sombras y efectos */
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Estilos del navbar */
+      .navbar-item img {
+        max-height: 2.5rem;
+      }
+
+      .navbar.is-fixed-top {
+        backdrop-filter: blur(8px);
+      }
+
+      /* Bordes y separadores personalizados */
+      .border-mate-teal {
+        border: 2px solid var(--mate-teal);
+      }
+
+      /* Ajustes para las secciones */
+      .section {
+        padding: 3rem 1.5rem;
+      }
+
+      .section.is-large {
+        padding: 6rem 1.5rem;
+      }
+
+      /* Ajustes para imágenes y contenedores */
+      .image-container {
+        position: relative;
+      }
+
+      .image-shadow {
+        position: absolute;
+        inset: 0;
+        border-radius: 0.5rem;
+        opacity: 0.2;
+        filter: blur(15px);
+        transform: translate(-10px, 10px);
+      }
+
+      /* Estilos para el formulario */
+      .input:focus,
+      .textarea:focus {
+        border-color: var(--mate-teal);
+        box-shadow: 0 0 0 0.125em rgba(11, 94, 107, 0.25);
+      }
+
+      /* Estilos para iconos */
+      .icon-feature {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .icon-contact {
+        margin-right: 0.75rem;
+        color: var(--mate-teal);
+      }
+
+      /* Ajustes para el footer */
+      .footer-link:hover {
+        color: var(--mate-beige) !important;
+      }
+
+      /* Animaciones sutiles */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease forwards;
+      }
+
+      /* Ajustes responsivos adicionales */
+      @media screen and (max-width: 768px) {
+        .reverse-columns {
+          flex-direction: column-reverse;
+          display: flex;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-mate-beige text-gray-800 font-sans">
+  <body class="has-background-mate-beige">
     <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2">
-            <img
-              src="Images\Logo.png"
-              alt="MateLogic Interactive Logo"
-              class="h-12"
-            />
-            <span class="font-bold text-mate-teal text-xl hidden md:inline"
+    <nav
+      class="navbar is-fixed-top is-white"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#inicio">
+            <img src="Images/Logo.png" alt="MateLogic Interactive Logo" />
+            <span
+              class="ml-2 has-text-mate-teal has-text-weight-bold is-size-4 is-hidden-mobile"
               >MateLogic Interactive</span
             >
-          </div>
-          <div class="hidden md:flex space-x-6">
-            <a
-              href="#inicio"
-              class="text-mate-teal hover:text-mate-light-teal transition"
-              >Inicio</a
-            >
-            <a
-              href="#servicios"
-              class="text-mate-teal hover:text-mate-light-teal transition"
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navMenu"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="#inicio" class="navbar-item has-text-mate-teal">Inicio</a>
+            <a href="#servicios" class="navbar-item has-text-mate-teal"
               >Servicios</a
             >
-            <a
-              href="#nosotros"
-              class="text-mate-teal hover:text-mate-light-teal transition"
+            <a href="#nosotros" class="navbar-item has-text-mate-teal"
               >Nosotros</a
             >
-            <a
-              href="#contacto"
-              class="text-mate-teal hover:text-mate-light-teal transition"
+            <a href="#contacto" class="navbar-item has-text-mate-teal"
               >Contacto</a
             >
           </div>
-          <div class="md:hidden">
-            <button id="menu-toggle" class="text-mate-teal focus:outline-none">
-              <i class="fas fa-bars text-2xl"></i>
-            </button>
-          </div>
         </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
-        <a
-          href="#inicio"
-          class="block py-2 text-mate-teal hover:text-mate-light-teal"
-          >Inicio</a
-        >
-        <a
-          href="#servicios"
-          class="block py-2 text-mate-teal hover:text-mate-light-teal"
-          >Servicios</a
-        >
-        <a
-          href="#nosotros"
-          class="block py-2 text-mate-teal hover:text-mate-light-teal"
-          >Nosotros</a
-        >
-        <a
-          href="#contacto"
-          class="block py-2 text-mate-teal hover:text-mate-light-teal"
-          >Contacto</a
-        >
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="inicio"
-      class="py-20 bg-gradient-to-br from-mate-teal to-mate-light-teal text-white"
-    >
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-8 md:mb-0">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-              Soluciones digitales
-              <span class="text-mate-beige">con esencia argentina</span>
-            </h1>
-            <p class="text-lg mb-8">
-              Desarrollamos software a medida que combina innovación tecnológica
-              con la pasión y dedicación que caracteriza nuestra cultura.
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="#servicios"
-                class="bg-mate-beige text-mate-teal px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition"
-                >Nuestros Servicios</a
-              >
-              <a
-                href="#contacto"
-                class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-mate-teal transition"
-                >Contáctanos</a
-              >
+    <section id="inicio" class="hero is-fullheight-with-navbar hero-gradient">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-6 animate-fade-in">
+              <h1 class="title is-1 has-text-white mb-4">
+                Soluciones digitales
+                <span class="has-text-mate-beige">con esencia argentina</span>
+              </h1>
+              <p class="subtitle is-4 has-text-white mb-5">
+                Transformamos ideas en software a medida que combina innovación
+                tecnológica con la pasión y dedicación que caracteriza nuestra
+                cultura.
+              </p>
+              <div class="buttons">
+                <a
+                  href="#servicios"
+                  class="button is-rounded is-medium has-background-mate-beige has-text-mate-teal"
+                >
+                  <span>Descubrir servicios</span>
+                  <span class="icon ml-2">
+                    <i class="ti ti-chevron-right"></i>
+                  </span>
+                </a>
+                <a
+                  href="#contacto"
+                  class="button is-rounded is-medium is-outlined is-white"
+                >
+                  <span>Hablar con nosotros</span>
+                  <span class="icon ml-2">
+                    <i class="ti ti-message"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="column is-6 has-text-centered">
+              <div class="image-container">
+                <div class="image-shadow has-background-mate-brown"></div>
+                <img
+                  src="Images/Logo.png"
+                  alt="MateLogic Interactive Logo"
+                  class="image"
+                  style="max-width: 320px; margin: 0 auto"
+                />
+              </div>
             </div>
           </div>
-          <div class="md:w-1/2 flex justify-center">
-            <div class="relative">
-              <div
-                class="absolute inset-0 bg-mate-brown rounded-full opacity-20 blur-xl transform -translate-x-4 translate-y-4"
-              ></div>
-              <img
-                src="Images\Logo.png"
-                alt="MateLogic Interactive Logo"
-                class="w-64 md:w-80 relative z-10"
-              />
-            </div>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <div class="container has-text-centered py-4">
+          <div class="is-flex is-justify-content-center">
+            <span
+              class="icon is-size-4 has-text-white mx-1 animate-fade-in"
+              style="animation-delay: 0.3s"
+            >
+              <i class="ti ti-chevron-down"></i>
+            </span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Servicios Section -->
-    <section id="servicios" class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-mate-teal mb-4">
-            Nuestros Servicios
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Aplicamos nuestra experiencia y conocimiento para desarrollar
-            soluciones tecnológicas que impulsen tu negocio.
+    <section id="servicios" class="section is-large">
+      <div class="container">
+        <div class="has-text-centered mb-6">
+          <h2 class="title is-2 has-text-mate-teal">Nuestros Servicios</h2>
+          <p
+            class="subtitle is-5 has-text-grey-dark mx-auto"
+            style="max-width: 700px"
+          >
+            Aplicamos tecnología de vanguardia y metodologías ágiles para crear
+            soluciones digitales que potencian el crecimiento y la eficiencia de
+            tu negocio.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="columns is-multiline is-centered mt-6">
           <!-- Servicio 1 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-laptop-code text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-code"></i>
+                </span>
+                <h3 class="title is-4 mb-3">Desarrollo Web</h3>
+                <p class="has-text-grey">
+                  Creamos sitios web modernos, responsivos y optimizados para
+                  SEO que representan perfectamente la identidad de tu marca y
+                  generan conversiones efectivas.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Desarrollo Web</h3>
-            <p class="text-gray-600">
-              Creamos sitios web modernos, responsivos y optimizados para SEO
-              que representan perfectamente la identidad de tu marca.
-            </p>
           </div>
 
           <!-- Servicio 2 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-mobile-alt text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-device-mobile"></i>
+                </span>
+                <h3 class="title is-4 mb-3">Aplicaciones Móviles</h3>
+                <p class="has-text-grey">
+                  Desarrollamos apps nativas e híbridas para iOS y Android con
+                  interfaces intuitivas y funcionalidades avanzadas adaptadas a
+                  las necesidades específicas de tu negocio.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Aplicaciones Móviles</h3>
-            <p class="text-gray-600">
-              Desarrollamos apps nativas e híbridas para iOS y Android,
-              adaptadas a las necesidades específicas de tu negocio.
-            </p>
           </div>
 
           <!-- Servicio 3 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-database text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-database"></i>
+                </span>
+                <h3 class="title is-4 mb-3">Sistemas de Gestión</h3>
+                <p class="has-text-grey">
+                  Automatizamos y optimizamos los procesos críticos de tu
+                  empresa con soluciones personalizadas que incrementan la
+                  productividad y reducen costos operativos.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Sistemas de Gestión</h3>
-            <p class="text-gray-600">
-              Automatizamos y optimizamos los procesos de tu empresa con
-              soluciones personalizadas que incrementan la productividad.
-            </p>
           </div>
 
           <!-- Servicio 4 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-server text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-bulb"></i>
+                </span>
+                <h3 class="title is-4 mb-3">Consultoría IT</h3>
+                <p class="has-text-grey">
+                  Asesoramos en la implementación de tecnologías y estrategias
+                  digitales para maximizar el retorno de inversión y asegurar el
+                  éxito de tu transformación digital.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Consultoría IT</h3>
-            <p class="text-gray-600">
-              Asesoramos en la implementación de tecnologías y estrategias
-              digitales para maximizar el potencial de tu negocio.
-            </p>
           </div>
 
           <!-- Servicio 5 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-search text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-search"></i>
+                </span>
+                <h3 class="title is-4 mb-3">SEO y Marketing Digital</h3>
+                <p class="has-text-grey">
+                  Mejoramos la visibilidad online de tu empresa con estrategias
+                  de posicionamiento personalizadas y campañas digitales que
+                  atraen tráfico cualificado y generan leads.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">SEO y Marketing Digital</h3>
-            <p class="text-gray-600">
-              Mejoramos la visibilidad online de tu empresa con estrategias
-              personalizadas y optimización para buscadores.
-            </p>
           </div>
 
           <!-- Servicio 6 -->
-          <div
-            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
-          >
-            <div class="text-mate-teal mb-4">
-              <i class="fas fa-paint-brush text-4xl"></i>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="card card-hover has-background-white h-100">
+              <div class="card-content has-text-centered">
+                <span class="icon icon-feature has-text-mate-teal">
+                  <i class="ti ti-palette"></i>
+                </span>
+                <h3 class="title is-4 mb-3">Diseño UX/UI</h3>
+                <p class="has-text-grey">
+                  Creamos interfaces intuitivas y atractivas basadas en
+                  investigación de usuarios que mejoran la experiencia de uso y
+                  aumentan significativamente las conversiones.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold mb-3">Diseño UX/UI</h3>
-            <p class="text-gray-600">
-              Creamos interfaces intuitivas y atractivas que mejoran la
-              experiencia del usuario y aumentan las conversiones.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Nosotros Section -->
-    <section id="nosotros" class="py-20 bg-mate-teal text-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Nosotros</h2>
-          <p class="text-lg max-w-2xl mx-auto">
-            Conoce a MateLogic Interactive, donde la tecnología se une con la
-            tradición argentina para crear soluciones digitales innovadoras.
+    <section id="nosotros" class="section is-large has-background-mate-teal">
+      <div class="container">
+        <div class="has-text-centered mb-6">
+          <h2 class="title is-2 has-text-white">Sobre Nosotros</h2>
+          <p
+            class="subtitle is-5 has-text-white is-italic mx-auto"
+            style="max-width: 700px"
+          >
+            Conoce a MateLogic Interactive, donde la innovación tecnológica se
+            une con la tradición argentina para crear soluciones digitales que
+            transforman negocios.
           </p>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-8 md:mb-0">
-            <div class="bg-mate-beige p-1 rounded-lg inline-block mb-6">
-              <div class="bg-mate-teal p-1 rounded-lg">
+        <div class="columns is-vcentered reverse-columns">
+          <div class="column is-5 has-text-centered-mobile">
+            <figure
+              class="image is-inline-block mb-4"
+              style="
+                border-radius: 8px;
+                padding: 4px;
+                background-color: var(--mate-beige);
+              "
+            >
+              <div
+                style="
+                  padding: 4px;
+                  background-color: var(--mate-teal);
+                  border-radius: 6px;
+                "
+              >
                 <img
-                  src="Images\founder.jpeg"
+                  src="Images/founder.jpeg"
                   alt="Foto del fundador"
-                  class="w-64 h-64 object-cover rounded-lg"
+                  style="
+                    width: 260px;
+                    height: 260px;
+                    object-fit: cover;
+                    border-radius: 4px;
+                  "
                 />
               </div>
-            </div>
-            <h3 class="text-2xl font-bold mb-2">
+            </figure>
+            <h3 class="title is-3 has-text-white mb-2">
               Bernardo Andrés González Erramuspe
             </h3>
-            <p class="text-mate-light-teal mb-4">Fundador y CEO</p>
-            <div class="flex space-x-3">
+            <p class="is-size-5 has-text-mate-light-teal mb-4">
+              Fundador y CEO
+            </p>
+            <div class="buttons is-centered-mobile">
               <a
                 href="https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/"
-                class="text-white hover:text-mate-beige transition"
+                class="button is-rounded is-small is-white is-outlined"
+                target="_blank"
               >
-                <i class="fab fa-linkedin text-xl"></i>
+                <span class="icon">
+                  <i class="ti ti-brand-linkedin"></i>
+                </span>
               </a>
               <a
                 href="https://github.com/Bernard2806"
-                class="text-white hover:text-mate-beige transition"
+                class="button is-rounded is-small is-white is-outlined"
+                target="_blank"
               >
-                <i class="fab fa-github text-xl"></i>
+                <span class="icon">
+                  <i class="ti ti-brand-github"></i>
+                </span>
               </a>
               <a
                 href="https://bernard2806.is-a.dev/"
-                class="text-white hover:text-mate-beige transition"
+                class="button is-rounded is-small is-white is-outlined"
+                target="_blank"
               >
-                <i class="fas fa-globe text-xl"></i>
+                <span class="icon">
+                  <i class="ti ti-world"></i>
+                </span>
               </a>
             </div>
           </div>
-          <div class="md:w-1/2">
-            <div class="bg-white bg-opacity-10 p-8 rounded-lg">
-              <h4 class="text-xl font-bold mb-4 flex items-center">
-                <i class="fas fa-mug-hot mr-3 text-mate-beige"></i>
-                Nuestra Historia
-              </h4>
-              <p class="mb-4">
-                MateLogic Interactive fue fundada el 12 de abril de 2025 con la
-                visión de fusionar la excelencia tecnológica con la calidez y
-                creatividad que caracteriza a la cultura argentina.
-              </p>
-              <p class="mb-4">
-                Aunque somos una empresa joven, nuestro fundador cuenta con
-                amplia experiencia en el desarrollo de soluciones digitales
-                innovadoras y efectivas para diversos sectores.
-              </p>
+          <div class="column is-7">
+            <div
+              class="box has-background-white-ter"
+              style="border-radius: 12px"
+            >
+              <article class="media">
+                <div class="media-content">
+                  <div class="content">
+                    <h4
+                      class="title is-4 mb-4 is-flex is-align-items-center has-text-mate-teal"
+                    >
+                      <span class="icon mr-2">
+                        <i class="ti ti-mug"></i>
+                      </span>
+                      Nuestra Historia
+                    </h4>
+                    <p class="mb-4">
+                      MateLogic Interactive fue fundada el 12 de abril de 2025
+                      en <strong>Chivilcoy, Buenos Aires, Argentina</strong>,
+                      con la visión de fusionar la excelencia tecnológica global
+                      con la creatividad y el talento local que caracteriza a
+                      nuestra región.
+                    </p>
+                    <p class="mb-5">
+                      Aunque somos una empresa joven, nuestro equipo cuenta con
+                      amplia trayectoria en el desarrollo de soluciones
+                      digitales innovadoras para diversos sectores, tanto en
+                      Argentina como en mercados internacionales.
+                    </p>
 
-              <h4 class="text-xl font-bold mb-4 flex items-center mt-8">
-                <i class="fas fa-star mr-3 text-mate-beige"></i>
-                Nuestra Misión
-              </h4>
-              <p>
-                Desarrollar software de calidad que no solo cumpla con los
-                requisitos técnicos sino que también refleje la pasión y
-                dedicación que ponemos en cada proyecto, ofreciendo soluciones
-                que realmente marquen la diferencia para nuestros clientes.
-              </p>
+                    <h4
+                      class="title is-4 mb-4 is-flex is-align-items-center has-text-mate-teal"
+                    >
+                      <span class="icon mr-2">
+                        <i class="ti ti-star"></i>
+                      </span>
+                      Nuestra Misión
+                    </h4>
+                    <p>
+                      Desarrollamos software de calidad que no solo cumple con
+                      los requisitos técnicos sino que también refleja nuestra
+                      dedicación a la excelencia y al detalle. Nos comprometemos
+                      a crear soluciones que realmente marquen la diferencia
+                      para nuestros clientes, ayudándoles a alcanzar sus
+                      objetivos de negocio con tecnología innovadora y
+                      accesible.
+                    </p>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -324,167 +539,204 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-16 bg-mate-brown text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-2xl md:text-3xl font-bold mb-6">
+    <section class="section has-background-mate-brown">
+      <div class="container has-text-centered py-5">
+        <h3 class="title is-3 has-text-white mb-4">
           ¿Listo para impulsar tu proyecto?
         </h3>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">
+        <p
+          class="subtitle is-5 has-text-white mx-auto mb-5"
+          style="max-width: 700px"
+        >
           Compartimos un mate virtual y conversamos sobre cómo podemos ayudarte
-          a convertir tus ideas en soluciones digitales efectivas.
+          a convertir tus ideas en soluciones digitales que generen resultados
+          tangibles para tu negocio.
         </p>
         <a
           href="#contacto"
-          class="bg-mate-beige text-mate-brown px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition inline-flex items-center"
+          class="button is-rounded is-medium has-background-mate-beige has-text-mate-brown"
         >
-          <i class="fas fa-paper-plane mr-2"></i>
-          Contactanos
+          <span class="icon mr-2">
+            <i class="ti ti-send"></i>
+          </span>
+          <span>Iniciar conversación</span>
         </a>
       </div>
     </section>
 
     <!-- Contacto Section -->
-    <section id="contacto" class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-mate-teal mb-4">
-            Contacto
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Estamos ansiosos por conocer tu proyecto. Completa el formulario y
-            nos pondremos en contacto contigo lo antes posible.
+    <section id="contacto" class="section is-large">
+      <div class="container">
+        <div class="has-text-centered mb-6">
+          <h2 class="title is-2 has-text-mate-teal">Contacto</h2>
+          <p
+            class="subtitle is-5 has-text-grey-dark mx-auto"
+            style="max-width: 700px"
+          >
+            Estamos ansiosos por conocer tu proyecto y ayudarte a hacerlo
+            realidad. Completa el formulario y nos pondremos en contacto contigo
+            en menos de 24 horas.
           </p>
         </div>
 
-        <div
-          class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8"
-        >
-          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
-            <form id="contactForm" action="procesar-contacto.php" method="POST">
-              <div class="mb-6">
-                <label for="nombre" class="block text-gray-700 mb-2"
-                  >Nombre completo</label
-                >
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
-                  required
-                />
-              </div>
-
-              <div class="mb-6">
-                <label for="email" class="block text-gray-700 mb-2"
-                  >Correo electrónico</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
-                  required
-                />
-              </div>
-
-              <div class="mb-6">
-                <label for="asunto" class="block text-gray-700 mb-2"
-                  >Asunto</label
-                >
-                <input
-                  type="text"
-                  id="asunto"
-                  name="asunto"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
-                  required
-                />
-              </div>
-
-              <div class="mb-6">
-                <label for="mensaje" class="block text-gray-700 mb-2"
-                  >Mensaje</label
-                >
-                <textarea
-                  id="mensaje"
-                  name="mensaje"
-                  rows="5"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="bg-mate-teal text-white px-6 py-3 rounded-lg font-medium hover:bg-mate-light-teal transition w-full"
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="box has-background-white">
+              <form
+                id="contactForm"
+                action="procesar-contacto.php"
+                method="POST"
               >
-                Enviar mensaje
-              </button>
-            </form>
+                <div class="field">
+                  <label class="label">Nombre completo</label>
+                  <div class="control has-icons-left">
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      class="input"
+                      required
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="ti ti-user"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Correo electrónico</label>
+                  <div class="control has-icons-left">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="input"
+                      required
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="ti ti-mail"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Asunto</label>
+                  <div class="control has-icons-left">
+                    <input
+                      type="text"
+                      id="asunto"
+                      name="asunto"
+                      class="input"
+                      required
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="ti ti-bookmark"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Mensaje</label>
+                  <div class="control">
+                    <textarea
+                      id="mensaje"
+                      name="mensaje"
+                      class="textarea"
+                      rows="5"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="field mt-5">
+                  <div class="control">
+                    <button
+                      type="submit"
+                      class="button is-fullwidth has-background-mate-teal has-text-white is-medium"
+                    >
+                      <span class="icon mr-2">
+                        <i class="ti ti-send"></i>
+                      </span>
+                      <span>Enviar mensaje</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
 
-          <div class="md:w-1/2">
-            <div class="bg-white p-8 rounded-lg shadow-lg h-full">
-              <h3 class="text-2xl font-bold text-mate-teal mb-6">
+          <div class="column is-6">
+            <div class="box has-background-white h-100">
+              <h3 class="title is-4 has-text-mate-teal mb-5">
                 Información de contacto
               </h3>
 
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div class="text-mate-teal mr-4">
-                    <i class="fas fa-map-marker-alt text-xl"></i>
-                  </div>
+              <div class="content">
+                <div class="is-flex mb-5">
+                  <span class="icon icon-contact is-size-4">
+                    <i class="ti ti-map-pin"></i>
+                  </span>
                   <div>
-                    <h4 class="font-bold mb-1">Ubicación</h4>
-                    <p class="text-gray-600">Argentina</p>
+                    <h4 class="has-text-weight-bold mb-2">Ubicación</h4>
+                    <p class="has-text-grey">
+                      Chivilcoy, Buenos Aires, Argentina
+                    </p>
                   </div>
                 </div>
 
-                <div class="flex items-start">
-                  <div class="text-mate-teal mr-4">
-                    <i class="fas fa-envelope text-xl"></i>
-                  </div>
+                <div class="is-flex mb-5">
+                  <span class="icon icon-contact is-size-4">
+                    <i class="ti ti-mail"></i>
+                  </span>
                   <div>
-                    <h4 class="font-bold mb-1">Email</h4>
+                    <h4 class="has-text-weight-bold mb-2">Email</h4>
                     <a
                       href="mailto:contacto@matelogic.com"
-                      class="text-gray-600 hover:text-mate-teal"
-                      >contacto@matelogic.com</a
+                      class="has-text-grey hover:has-text-mate-teal"
                     >
+                      contacto@matelogic.com
+                    </a>
                   </div>
                 </div>
 
-                <div class="flex items-start">
-                  <div class="text-mate-teal mr-4">
-                    <i class="fas fa-clock text-xl"></i>
-                  </div>
+                <div class="is-flex mb-5">
+                  <span class="icon icon-contact is-size-4">
+                    <i class="ti ti-clock"></i>
+                  </span>
                   <div>
-                    <h4 class="font-bold mb-1">Horario</h4>
-                    <p class="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
+                    <h4 class="has-text-weight-bold mb-2">Horario</h4>
+                    <p class="has-text-grey">Lunes a Viernes: 9:00 - 18:00</p>
                   </div>
                 </div>
-              </div>
 
-              <div class="mt-10">
-                <h3 class="text-xl font-bold text-mate-teal mb-4">Síguenos</h3>
-                <div class="flex space-x-4">
-                  <a
-                    href="#"
-                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
-                  >
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                  <a
-                    href="#"
-                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a
-                    href="#"
-                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
-                  >
-                    <i class="fab fa-twitter"></i>
-                  </a>
+                <div class="mt-6">
+                  <h3 class="title is-5 has-text-mate-teal mb-4">Síguenos</h3>
+                  <div class="buttons">
+                    <a
+                      href="#"
+                      class="button is-rounded has-background-mate-teal has-text-white"
+                    >
+                      <span class="icon">
+                        <i class="ti ti-brand-linkedin"></i>
+                      </span>
+                    </a>
+                    <a
+                      href="#"
+                      class="button is-rounded has-background-mate-teal has-text-white"
+                    >
+                      <span class="icon">
+                        <i class="ti ti-brand-github"></i>
+                      </span>
+                    </a>
+                    <a
+                      href="#"
+                      class="button is-rounded has-background-mate-teal has-text-white"
+                    >
+                      <span class="icon">
+                        <i class="ti ti-brand-twitter"></i>
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -494,96 +746,118 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-mate-teal text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <div class="flex items-center space-x-2 mb-4">
+    <footer class="footer has-background-mate-teal has-text-white">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-4">
+            <div class="is-flex is-align-items-center mb-4">
               <img
-                src="Images\Logo.png"
+                src="Images/Logo.png"
                 alt="MateLogic Interactive Logo"
-                class="h-10"
+                style="height: 40px"
               />
-              <span class="font-bold text-xl">MateLogic Interactive</span>
+              <span class="has-text-weight-bold is-size-4 ml-2"
+                >MateLogic Interactive</span
+              >
             </div>
-            <p class="text-mate-light-teal">
+            <p class="has-text-mate-light-teal mb-2">
               Soluciones digitales con esencia argentina
+            </p>
+            <p class="has-text-mate-light-teal">
+              Chivilcoy, Buenos Aires, Argentina
             </p>
           </div>
 
-          <div
-            class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-12"
-          >
-            <div>
-              <h4 class="font-bold text-lg mb-4 flex items-center">
-                <i class="fas fa-link mr-2 text-mate-beige"></i>
-                Enlaces rápidos
-              </h4>
-              <ul class="space-y-2">
-                <li>
-                  <a href="#inicio" class="hover:text-mate-beige transition"
-                    >Inicio</a
-                  >
-                </li>
-                <li>
-                  <a href="#servicios" class="hover:text-mate-beige transition"
-                    >Servicios</a
-                  >
-                </li>
-                <li>
-                  <a href="#nosotros" class="hover:text-mate-beige transition"
-                    >Nosotros</a
-                  >
-                </li>
-                <li>
-                  <a href="#contacto" class="hover:text-mate-beige transition"
-                    >Contacto</a
-                  >
-                </li>
-              </ul>
-            </div>
+          <div class="column is-4">
+            <h4
+              class="is-size-5 has-text-weight-bold mb-4 is-flex is-align-items-center"
+            >
+              <span class="icon mr-2 has-text-mate-beige">
+                <i class="ti ti-link"></i>
+              </span>
+              Enlaces rápidos
+            </h4>
+            <ul>
+              <li class="mb-2">
+                <a href="#inicio" class="has-text-white footer-link">Inicio</a>
+              </li>
+              <li class="mb-2">
+                <a href="#servicios" class="has-text-white footer-link"
+                  >Servicios</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#nosotros" class="has-text-white footer-link"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a href="#contacto" class="has-text-white footer-link"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <h4 class="font-bold text-lg mb-4 flex items-center">
-                <i class="fas fa-user-circle mr-2 text-mate-beige"></i>
-                Redes personales
-              </h4>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    class="hover:text-mate-beige transition flex items-center"
-                  >
-                    <i class="fab fa-linkedin mr-2"></i>
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="hover:text-mate-beige transition flex items-center"
-                  >
-                    <i class="fab fa-github mr-2"></i>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="hover:text-mate-beige transition flex items-center"
-                  >
-                    <i class="fas fa-globe mr-2"></i>
-                    Portafolio
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div class="column is-4">
+            <h4
+              class="is-size-5 has-text-weight-bold mb-4 is-flex is-align-items-center"
+            >
+              <span class="icon mr-2 has-text-mate-beige">
+                <i class="ti ti-user-circle"></i>
+              </span>
+              Redes personales
+            </h4>
+            <ul>
+              <li class="mb-2">
+                <a
+                  href="https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/"
+                  class="has-text-white footer-link is-flex is-align-items-center"
+                  target="_blank"
+                >
+                  <span class="icon mr-2">
+                    <i class="ti ti-brand-linkedin"></i>
+                  </span>
+                  LinkedIn
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="https://github.com/Bernard2806"
+                  class="has-text-white footer-link is-flex is-align-items-center"
+                  target="_blank"
+                >
+                  <span class="icon mr-2">
+                    <i class="ti ti-brand-github"></i>
+                  </span>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://bernard2806.is-a.dev/"
+                  class="has-text-white footer-link is-flex is-align-items-center"
+                  target="_blank"
+                >
+                  <span class="icon mr-2">
+                    <i class="ti ti-world"></i>
+                  </span>
+                  Portafolio
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <hr class="border-mate-light-teal opacity-30 my-8" />
+        <hr
+          style="
+            background-color: var(--mate-light-teal);
+            opacity: 0.3;
+            margin: 2rem 0;
+          "
+        />
 
-        <div class="text-center text-mate-light-teal">
+        <div class="has-text-centered has-text-mate-light-teal">
           <p>
             &copy; 2025 MateLogic Interactive. Todos los derechos reservados.
           </p>
@@ -594,23 +868,51 @@
     <!-- JavaScript -->
     <script>
       // Mobile menu toggle
-      document
-        .getElementById("menu-toggle")
-        .addEventListener("click", function () {
-          document.getElementById("mobile-menu").classList.toggle("hidden");
-        });
+      document.addEventListener("DOMContentLoaded", () => {
+        // Burger menu functionality
+        const $navbarBurgers = Array.prototype.slice.call(
+          document.querySelectorAll(".navbar-burger"),
+          0
+        );
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+        if ($navbarBurgers.length > 0) {
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
 
-          // Close mobile menu if open
-          document.getElementById("mobile-menu").classList.add("hidden");
+              // Toggle the "is-active" class on both the burger menu and the navbar menu
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
+            });
+          });
+        }
 
-          // Scroll to section
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Cerrar el menú móvil si está abierto
+            const navMenu = document.getElementById("navMenu");
+            if (navMenu.classList.contains("is-active")) {
+              navMenu.classList.remove("is-active");
+              document
+                .querySelector(".navbar-burger")
+                .classList.remove("is-active");
+            }
+
+            // Obtener el elemento objetivo
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            // Scroll suave hasta la sección
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
           });
         });
       });
