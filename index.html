@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MateLogic Interactive | Desarrollo de Software</title>
+    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "mate-teal": "#0b5e6b",
+              "mate-light-teal": "#58b0bd",
+              "mate-brown": "#7a4e2b",
+              "mate-beige": "#f5f0e6",
+              "mate-green": "#8fb03e",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-mate-beige text-gray-800 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <img
+              src="Images\Logo.png"
+              alt="MateLogic Interactive Logo"
+              class="h-12"
+            />
+            <span class="font-bold text-mate-teal text-xl hidden md:inline"
+              >MateLogic Interactive</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-6">
+            <a
+              href="#inicio"
+              class="text-mate-teal hover:text-mate-light-teal transition"
+              >Inicio</a
+            >
+            <a
+              href="#servicios"
+              class="text-mate-teal hover:text-mate-light-teal transition"
+              >Servicios</a
+            >
+            <a
+              href="#nosotros"
+              class="text-mate-teal hover:text-mate-light-teal transition"
+              >Nosotros</a
+            >
+            <a
+              href="#contacto"
+              class="text-mate-teal hover:text-mate-light-teal transition"
+              >Contacto</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button id="menu-toggle" class="text-mate-teal focus:outline-none">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+        <a
+          href="#inicio"
+          class="block py-2 text-mate-teal hover:text-mate-light-teal"
+          >Inicio</a
+        >
+        <a
+          href="#servicios"
+          class="block py-2 text-mate-teal hover:text-mate-light-teal"
+          >Servicios</a
+        >
+        <a
+          href="#nosotros"
+          class="block py-2 text-mate-teal hover:text-mate-light-teal"
+          >Nosotros</a
+        >
+        <a
+          href="#contacto"
+          class="block py-2 text-mate-teal hover:text-mate-light-teal"
+          >Contacto</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="inicio"
+      class="py-20 bg-gradient-to-br from-mate-teal to-mate-light-teal text-white"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+              Soluciones digitales
+              <span class="text-mate-beige">con esencia argentina</span>
+            </h1>
+            <p class="text-lg mb-8">
+              Desarrollamos software a medida que combina innovación tecnológica
+              con la pasión y dedicación que caracteriza nuestra cultura.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#servicios"
+                class="bg-mate-beige text-mate-teal px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition"
+                >Nuestros Servicios</a
+              >
+              <a
+                href="#contacto"
+                class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-mate-teal transition"
+                >Contáctanos</a
+              >
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-mate-brown rounded-full opacity-20 blur-xl transform -translate-x-4 translate-y-4"
+              ></div>
+              <img
+                src="Images\Logo.png"
+                alt="MateLogic Interactive Logo"
+                class="w-64 md:w-80 relative z-10"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-mate-teal mb-4">
+            Nuestros Servicios
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Aplicamos nuestra experiencia y conocimiento para desarrollar
+            soluciones tecnológicas que impulsen tu negocio.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-laptop-code text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Desarrollo Web</h3>
+            <p class="text-gray-600">
+              Creamos sitios web modernos, responsivos y optimizados para SEO
+              que representan perfectamente la identidad de tu marca.
+            </p>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-mobile-alt text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Aplicaciones Móviles</h3>
+            <p class="text-gray-600">
+              Desarrollamos apps nativas e híbridas para iOS y Android,
+              adaptadas a las necesidades específicas de tu negocio.
+            </p>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-database text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Sistemas de Gestión</h3>
+            <p class="text-gray-600">
+              Automatizamos y optimizamos los procesos de tu empresa con
+              soluciones personalizadas que incrementan la productividad.
+            </p>
+          </div>
+
+          <!-- Servicio 4 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-server text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Consultoría IT</h3>
+            <p class="text-gray-600">
+              Asesoramos en la implementación de tecnologías y estrategias
+              digitales para maximizar el potencial de tu negocio.
+            </p>
+          </div>
+
+          <!-- Servicio 5 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-search text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">SEO y Marketing Digital</h3>
+            <p class="text-gray-600">
+              Mejoramos la visibilidad online de tu empresa con estrategias
+              personalizadas y optimización para buscadores.
+            </p>
+          </div>
+
+          <!-- Servicio 6 -->
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+          >
+            <div class="text-mate-teal mb-4">
+              <i class="fas fa-paint-brush text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Diseño UX/UI</h3>
+            <p class="text-gray-600">
+              Creamos interfaces intuitivas y atractivas que mejoran la
+              experiencia del usuario y aumentan las conversiones.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-20 bg-mate-teal text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre Nosotros</h2>
+          <p class="text-lg max-w-2xl mx-auto">
+            Conoce a MateLogic Interactive, donde la tecnología se une con la
+            tradición argentina para crear soluciones digitales innovadoras.
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <div class="bg-mate-beige p-1 rounded-lg inline-block mb-6">
+              <div class="bg-mate-teal p-1 rounded-lg">
+                <img
+                  src="Images\founder.jpeg"
+                  alt="Foto del fundador"
+                  class="w-64 h-64 object-cover rounded-lg"
+                />
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">
+              Bernardo Andrés González Erramuspe
+            </h3>
+            <p class="text-mate-light-teal mb-4">Fundador y CEO</p>
+            <div class="flex space-x-3">
+              <a
+                href="https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/"
+                class="text-white hover:text-mate-beige transition"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a
+                href="https://github.com/Bernard2806"
+                class="text-white hover:text-mate-beige transition"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="https://bernard2806.is-a.dev/"
+                class="text-white hover:text-mate-beige transition"
+              >
+                <i class="fas fa-globe text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+              <h4 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-mug-hot mr-3 text-mate-beige"></i>
+                Nuestra Historia
+              </h4>
+              <p class="mb-4">
+                MateLogic Interactive fue fundada el 12 de abril de 2025 con la
+                visión de fusionar la excelencia tecnológica con la calidez y
+                creatividad que caracteriza a la cultura argentina.
+              </p>
+              <p class="mb-4">
+                Aunque somos una empresa joven, nuestro fundador cuenta con
+                amplia experiencia en el desarrollo de soluciones digitales
+                innovadoras y efectivas para diversos sectores.
+              </p>
+
+              <h4 class="text-xl font-bold mb-4 flex items-center mt-8">
+                <i class="fas fa-star mr-3 text-mate-beige"></i>
+                Nuestra Misión
+              </h4>
+              <p>
+                Desarrollar software de calidad que no solo cumpla con los
+                requisitos técnicos sino que también refleje la pasión y
+                dedicación que ponemos en cada proyecto, ofreciendo soluciones
+                que realmente marquen la diferencia para nuestros clientes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-mate-brown text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">
+          ¿Listo para impulsar tu proyecto?
+        </h3>
+        <p class="text-lg mb-8 max-w-2xl mx-auto">
+          Compartimos un mate virtual y conversamos sobre cómo podemos ayudarte
+          a convertir tus ideas en soluciones digitales efectivas.
+        </p>
+        <a
+          href="#contacto"
+          class="bg-mate-beige text-mate-brown px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition inline-flex items-center"
+        >
+          <i class="fas fa-paper-plane mr-2"></i>
+          Contactanos
+        </a>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-mate-teal mb-4">
+            Contacto
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Estamos ansiosos por conocer tu proyecto. Completa el formulario y
+            nos pondremos en contacto contigo lo antes posible.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8"
+        >
+          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+            <form id="contactForm" action="procesar-contacto.php" method="POST">
+              <div class="mb-6">
+                <label for="nombre" class="block text-gray-700 mb-2"
+                  >Nombre completo</label
+                >
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
+                  required
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 mb-2"
+                  >Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
+                  required
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="asunto" class="block text-gray-700 mb-2"
+                  >Asunto</label
+                >
+                <input
+                  type="text"
+                  id="asunto"
+                  name="asunto"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
+                  required
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="mensaje" class="block text-gray-700 mb-2"
+                  >Mensaje</label
+                >
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mate-teal"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="bg-mate-teal text-white px-6 py-3 rounded-lg font-medium hover:bg-mate-light-teal transition w-full"
+              >
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
+
+          <div class="md:w-1/2">
+            <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+              <h3 class="text-2xl font-bold text-mate-teal mb-6">
+                Información de contacto
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="text-mate-teal mr-4">
+                    <i class="fas fa-map-marker-alt text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Ubicación</h4>
+                    <p class="text-gray-600">Argentina</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="text-mate-teal mr-4">
+                    <i class="fas fa-envelope text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Email</h4>
+                    <a
+                      href="mailto:contacto@matelogic.com"
+                      class="text-gray-600 hover:text-mate-teal"
+                      >contacto@matelogic.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="text-mate-teal mr-4">
+                    <i class="fas fa-clock text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold mb-1">Horario</h4>
+                    <p class="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-10">
+                <h3 class="text-xl font-bold text-mate-teal mb-4">Síguenos</h3>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-mate-teal text-white p-3 rounded-full hover:bg-mate-light-teal transition"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mate-teal text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <div class="flex items-center space-x-2 mb-4">
+              <img
+                src="Images\Logo.png"
+                alt="MateLogic Interactive Logo"
+                class="h-10"
+              />
+              <span class="font-bold text-xl">MateLogic Interactive</span>
+            </div>
+            <p class="text-mate-light-teal">
+              Soluciones digitales con esencia argentina
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-12"
+          >
+            <div>
+              <h4 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-link mr-2 text-mate-beige"></i>
+                Enlaces rápidos
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#inicio" class="hover:text-mate-beige transition"
+                    >Inicio</a
+                  >
+                </li>
+                <li>
+                  <a href="#servicios" class="hover:text-mate-beige transition"
+                    >Servicios</a
+                  >
+                </li>
+                <li>
+                  <a href="#nosotros" class="hover:text-mate-beige transition"
+                    >Nosotros</a
+                  >
+                </li>
+                <li>
+                  <a href="#contacto" class="hover:text-mate-beige transition"
+                    >Contacto</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-lg mb-4 flex items-center">
+                <i class="fas fa-user-circle mr-2 text-mate-beige"></i>
+                Redes personales
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="hover:text-mate-beige transition flex items-center"
+                  >
+                    <i class="fab fa-linkedin mr-2"></i>
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:text-mate-beige transition flex items-center"
+                  >
+                    <i class="fab fa-github mr-2"></i>
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="hover:text-mate-beige transition flex items-center"
+                  >
+                    <i class="fas fa-globe mr-2"></i>
+                    Portafolio
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-mate-light-teal opacity-30 my-8" />
+
+        <div class="text-center text-mate-light-teal">
+          <p>
+            &copy; 2025 MateLogic Interactive. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Close mobile menu if open
+          document.getElementById("mobile-menu").classList.add("hidden");
+
+          // Scroll to section
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Form validation and submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic validation
+          const nombre = document.getElementById("nombre").value;
+          const email = document.getElementById("email").value;
+          const asunto = document.getElementById("asunto").value;
+          const mensaje = document.getElementById("mensaje").value;
+
+          if (!nombre || !email || !asunto || !mensaje) {
+            alert("Por favor, completa todos los campos.");
+            return;
+          }
+
+          // Validate email format
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Correo electrónico inválido.");
+            return;
+          }
+
+          const z = "NTQyMzQ2NjE0NDky";
+          const n = atob(z);
+
+          // Create WhatsApp message
+          const texto =
+            `*Nuevo mensaje de contacto*%0A%0A` +
+            `*Nombre:* ${nombre}%0A` +
+            `*Email:* ${email}%0A` +
+            `*Asunto:* ${asunto}%0A` +
+            `*Mensaje:* ${mensaje}`;
+
+          // Encode the message for URL
+          const url = `https://wa.me/${n}?text=${texto}`;
+
+          // Open WhatsApp in a new tab
+          window.open(url, "_blank");
+
+          alert(
+            "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+          );
+
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
